@@ -1,0 +1,332 @@
+[
+  {
+    "order": 1,
+    "name": "Genèse",
+    "chapters": 50
+  },
+  {
+    "order": 2,
+    "name": "Exode",
+    "chapters": 40
+  },
+  {
+    "order": 3,
+    "name": "Lévitique",
+    "chapters": 27
+  },
+  {
+    "order": 4,
+    "name": "Nombres",
+    "chapters": 36
+  },
+  {
+    "order": 5,
+    "name": "Deutéronome",
+    "chapters": 34
+  },
+  {
+    "order": 6,
+    "name": "Josué",
+    "chapters": 24
+  },
+  {
+    "order": 7,
+    "name": "Juges",
+    "chapters": 21
+  },
+  {
+    "order": 8,
+    "name": "Ruth",
+    "chapters": 4
+  },
+  {
+    "order": 9,
+    "name": "1 Samuel",
+    "chapters": 31
+  },
+  {
+    "order": 10,
+    "name": "2 Samuel",
+    "chapters": 24
+  },
+  {
+    "order": 11,
+    "name": "1 Rois",
+    "chapters": 22
+  },
+  {
+    "order": 12,
+    "name": "2 Rois",
+    "chapters": 25
+  },
+  {
+    "order": 13,
+    "name": "1 Chroniques",
+    "chapters": 29
+  },
+  {
+    "order": 14,
+    "name": "2 Chroniques",
+    "chapters": 36
+  },
+  {
+    "order": 15,
+    "name": "Esdras",
+    "chapters": 10
+  },
+  {
+    "order": 16,
+    "name": "Néhémie",
+    "chapters": 13
+  },
+  {
+    "order": 17,
+    "name": "Esther",
+    "chapters": 10
+  },
+  {
+    "order": 18,
+    "name": "Job",
+    "chapters": 42
+  },
+  {
+    "order": 19,
+    "name": "Psaumes",
+    "chapters": 150
+  },
+  {
+    "order": 20,
+    "name": "Proverbes",
+    "chapters": 31
+  },
+  {
+    "order": 21,
+    "name": "Ecclésiaste",
+    "chapters": 12
+  },
+  {
+    "order": 22,
+    "name": "Cantique des Cantiques",
+    "chapters": 8
+  },
+  {
+    "order": 23,
+    "name": "Ésaïe",
+    "chapters": 66
+  },
+  {
+    "order": 24,
+    "name": "Jérémie",
+    "chapters": 52
+  },
+  {
+    "order": 25,
+    "name": "Lamentations",
+    "chapters": 5
+  },
+  {
+    "order": 26,
+    "name": "Ézéchiel",
+    "chapters": 48
+  },
+  {
+    "order": 27,
+    "name": "Daniel",
+    "chapters": 12
+  },
+  {
+    "order": 28,
+    "name": "Osée",
+    "chapters": 14
+  },
+  {
+    "order": 29,
+    "name": "Joël",
+    "chapters": 3
+  },
+  {
+    "order": 30,
+    "name": "Amos",
+    "chapters": 9
+  },
+  {
+    "order": 31,
+    "name": "Abdias",
+    "chapters": 1
+  },
+  {
+    "order": 32,
+    "name": "Jonas",
+    "chapters": 4
+  },
+  {
+    "order": 33,
+    "name": "Michée",
+    "chapters": 7
+  },
+  {
+    "order": 34,
+    "name": "Nahum",
+    "chapters": 3
+  },
+  {
+    "order": 35,
+    "name": "Habacuc",
+    "chapters": 3
+  },
+  {
+    "order": 36,
+    "name": "Sophonie",
+    "chapters": 3
+  },
+  {
+    "order": 37,
+    "name": "Aggée",
+    "chapters": 2
+  },
+  {
+    "order": 38,
+    "name": "Zacharie",
+    "chapters": 14
+  },
+  {
+    "order": 39,
+    "name": "Malachie",
+    "chapters": 4
+  },
+  {
+    "order": 40,
+    "name": "Matthieu",
+    "chapters": 28
+  },
+  {
+    "order": 41,
+    "name": "Marc",
+    "chapters": 16
+  },
+  {
+    "order": 42,
+    "name": "Luc",
+    "chapters": 24
+  },
+  {
+    "order": 43,
+    "name": "Jean",
+    "chapters": 21
+  },
+  {
+    "order": 44,
+    "name": "Actes des Apôtres",
+    "chapters": 28
+  },
+  {
+    "order": 45,
+    "name": "Romains",
+    "chapters": 16
+  },
+  {
+    "order": 46,
+    "name": "1 Corinthiens",
+    "chapters": 16
+  },
+  {
+    "order": 47,
+    "name": "2 Corinthiens",
+    "chapters": 13
+  },
+  {
+    "order": 48,
+    "name": "Galates",
+    "chapters": 6
+  },
+  {
+    "order": 49,
+    "name": "Éphésiens",
+    "chapters": 6
+  },
+  {
+    "order": 50,
+    "name": "Philippiens",
+    "chapters": 4
+  },
+  {
+    "order": 51,
+    "name": "Colossiens",
+    "chapters": 4
+  },
+  {
+    "order": 52,
+    "name": "1 Thessaloniciens",
+    "chapters": 5
+  },
+  {
+    "order": 53,
+    "name": "2 Thessaloniciens",
+    "chapters": 3
+  },
+  {
+    "order": 54,
+    "name": "1 Timothée",
+    "chapters": 6
+  },
+  {
+    "order": 55,
+    "name": "2 Timothée",
+    "chapters": 4
+  },
+  {
+    "order": 56,
+    "name": "Tite",
+    "chapters": 3
+  },
+  {
+    "order": 57,
+    "name": "Philémon",
+    "chapters": 1
+  },
+  {
+    "order": 58,
+    "name": "Hébreux",
+    "chapters": 13
+  },
+  {
+    "order": 59,
+    "name": "Jacques",
+    "chapters": 5
+  },
+  {
+    "order": 60,
+    "name": "1 Pierre",
+    "chapters": 5
+  },
+  {
+    "order": 61,
+    "name": "2 Pierre",
+    "chapters": 3
+  },
+  {
+    "order": 62,
+    "name": "1 Jean",
+    "chapters": 5
+  },
+  {
+    "order": 63,
+    "name": "2 Jean",
+    "chapters": 1
+  },
+  {
+    "order": 64,
+    "name": "3 Jean",
+    "chapters": 1
+  },
+  {
+    "order": 65,
+    "name": "Jude",
+    "chapters": 1
+  },
+  {
+    "order": 66,
+    "name": "Apocalypse",
+    "chapters": 22
+  }
+]

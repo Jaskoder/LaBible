@@ -1,0 +1,96 @@
+.sidebar {
+
+    background-color: var(--box-background);
+    padding: 1.6rem;
+    position: relative;
+    width: 100px;
+
+    .nav-items li {
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+
+        span {
+            display: none;
+        }
+    }
+
+    .toolbox {
+
+        li {
+
+            align-items: center;
+            justify-content: center;
+            min-width: 44px;
+
+            span {
+                display: none;
+            }
+        }
+    }
+}
+
+.sidebar.open {
+    width: 280px;
+    height: 100vh;
+
+    .nav-items li {
+        justify-content: flex-start;
+
+        span {
+            display: block;
+        }
+    }
+
+    .toolbox {
+
+        li {
+
+            justify-content: flex-start;
+
+            span {
+                display: block;
+            }
+        }
+    }
+}
+
+.sidebar .nav-items {}
+
+.nav-items li {
+    height: 44px;
+    background-color: var(--element-background);
+    padding: 0.6rem;
+    border-radius: 8px;
+    margin: 0.6rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+
+    i,
+    span {
+        color: var(--text-secondary-color);
+        font-weight: 600;
+    }
+}
+
+.sidebar .toolbox {
+
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    left: 2rem;
+}
+
+.toolbox .item {
+    height: 44px;
+    background-color: var(--element-background);
+    margin: 0.6rem 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.6rem;
+    gap: 1rem;
+}

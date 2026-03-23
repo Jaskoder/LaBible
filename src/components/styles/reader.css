@@ -1,0 +1,93 @@
+.reader {
+
+}
+
+.verses {
+    height: 600px;
+    padding: 0.6rem 0;
+    overflow-y: scroll;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+
+    width: 16px;
+    background-color: var(--element-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+}
+
+.verses .verse-card {
+
+    display: flex;
+    gap: 1rem;
+    padding: 0.6rem 0;
+
+    .verse-num {
+        display: block;
+        align-content: center;
+        text-align: center;
+        height: 28px;
+        width: 28px;
+        background-color: var(--element-background);
+        border-radius: 50%;
+    }
+}
+
+.reader .meta-wrapper {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reader .controls {
+
+    display: flex;
+    gap: 1rem;
+
+    button {
+        height: 36px;
+        width: 36px;
+        background-color: var(--element-background);
+        border-radius: 50%;
+    }
+}
+
+.meta {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.meta .book, .meta .chapter {
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.meta .picker-toogle {
+
+    width: 36px;
+    height: 36px;
+    background: var(--element-background);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-color);
+    opacity: 0.5;
+}

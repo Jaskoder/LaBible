@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: .3s;
+}
+
+:root {
+    --primary-color: hsl(220, 70%, 50%);
+}
+
+.light {
+
+    --body-background: hsl(220, 16%, 90%);
+    --box-background: hsl(220, 16%, 95%);
+    --element-background: hsl(220, 16%, 85%);
+
+    --text-primary-color: hsl(220, 16%, 10%);
+    --text-secondary-color: hsl(220, 16%, 30%);
+
+    --border-color: hsl(220, 16%, 60%);
+
+    --active-highlight : hsl(220, 50%, 90%);
+
+    * {
+        color: var(--text-primary-color);
+    }
+}
+
+.dark {
+    --body-background: hsl(220, 16%, 5%);
+    --box-background: hsl(220, 16%, 10%);
+    --element-background: hsl(220, 16%, 15%);
+
+    --text-primary-color: hsl(220, 16%, 90%);
+    --text-secondary-color: hsl(220, 10%, 70%);
+
+    --border-color: hsl(220, 16%, 40%);
+    --active-highlight : hsl(220, 50%, 10%);
+
+    * {
+        color: var(--text-primary-color);
+    }
+}
+
+ul, li {
+    list-style: none;
+}

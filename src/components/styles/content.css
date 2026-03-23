@@ -1,0 +1,13 @@
+.content {
+    padding: 2rem;
+    position: relative;
+}
+
+.content .title {}
+
+body:has(.sidebar.open) {
+
+    .content {
+        width: calc(100vw - 280px);
+    }
+}
