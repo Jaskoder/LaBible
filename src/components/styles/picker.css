@@ -1,65 +1,64 @@
 .picker {
 
-    transform: translateY(0);
-    display: flex;
+    display: none;
     flex-direction: column;
-    animation: slidedown 0.6s ease forwards;
-    position: absolute;
-    background-color: var(--box-background);
-    padding: 2rem;
-    z-index: 5;
-}
-
-.picker .books {
-
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
     gap: 0.6rem;
+    padding: 1rem;
+    background-color: var(--box-background);
 }
 
-.picker .chapters {
+.picker.open {
 
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    padding: 0.6rem;
+    display: flex;
+}
+
+.picker .parts-picker {
+
+    display: flex;
     gap: 1rem;
 }
 
-.picker .books li {
+.parts-picker .part {
 
-    height: 36px;
-    align-content: center;
-    background-color: var(--element-background);
-    text-align: center;
+    width: 200px;
     border-radius: 8px;
+    color: var(--text-secondary-color);
+}
 
-    span {
+.parts-picker, .books {
+
+    border-bottom: 1px solid var(--border-color);
+    padding: .6rem 0;
+}
+
+.picker .books, .picker .chapters {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+
+    li, button {
         color: var(--text-secondary-color);
     }
 }
 
-.picker .chapters button {
+.picker .books li {
 
-    height: 36px;
+    align-content: center;
+    text-align: center;
+    min-height: 44px;
+    flex-basis: 128px;
     background-color: var(--element-background);
     border-radius: 8px;
 }
 
-.books .book-item.active {
-
-    background-color: var(--active-highlight);
-    border: 1px solid var(--primary-color);
-
-    span {
-        color: var(--primary-color);
-    }
+.picker .books li span {
+    color: inherit;
 }
 
-.chap-picker.active {
+.books li.active, .part.active, .chap-picker.active {
 
     background-color: var(--active-highlight);
-    border: 1px solid var(--primary-color);
     color: var(--primary-color);
+    border: 1px solid var(--primary-color);
 }

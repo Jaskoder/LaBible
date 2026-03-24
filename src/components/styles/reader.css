@@ -1,67 +1,44 @@
 .reader {
 
-}
-
-.verses {
-    height: 600px;
-    padding: 0.6rem 0;
-    overflow-y: scroll;
     position: relative;
+    padding: 1rem;
 }
 
-::-webkit-scrollbar {
+.reader .reader-header {
 
-    width: 16px;
-    background-color: var(--element-background);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--body-background);
+    padding: 1rem;
 }
 
-::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-}
+.reader-header .meta-wrapper {
 
-.verses .verse-card {
-
-    display: flex;
-    gap: 1rem;
-    padding: 0.6rem 0;
-
-    .verse-num {
-        display: block;
-        align-content: center;
-        text-align: center;
-        height: 28px;
-        width: 28px;
-        background-color: var(--element-background);
-        border-radius: 50%;
-    }
-}
-
-.reader .meta-wrapper {
     height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.reader .controls {
-
-    display: flex;
-    gap: 1rem;
-
-    button {
-        height: 36px;
-        width: 36px;
-        background-color: var(--element-background);
-        border-radius: 50%;
-    }
-}
-
-.meta {
+.reader .controls, .reader .meta {
 
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+}
+
+.reader button {
+
+    min-height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--element-background);
 }
 
 .meta .book, .meta .chapter {
@@ -70,24 +47,32 @@
     font-weight: 600;
 }
 
-.meta .picker-toogle {
+.verses {
 
-    width: 36px;
-    height: 36px;
-    background: var(--element-background);
+    max-height: 600px;
+    overflow-y: scroll;
+    padding-top: 5rem;
+}
+
+.verses .verse-card {
+
+    display: flex;
+    gap: 1rem;
+    margin: 0.6rem 0;
+}
+
+.verse-card .verse-num {
+
+    height: 34px;
+    width: 34px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--element-background);
 }
 
-.overlay {
+.verses .verse-text {
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--border-color);
-    opacity: 0.5;
+    width: calc(100% - 34px);
 }

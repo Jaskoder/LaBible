@@ -1,18 +1,17 @@
 import { useMemo, useState } from 'react';
 import bibleData from '../bible.json';
 import bibleMeta from '../biblemeta.json';
-
 import ReferencePicker from './picker';
-
 import "./styles/reader.css";
 
 
 function ApplictionReader() {
 
-    const [points, setPoints] = useState({ book: 1, chapter: 1 });
-    const [open, setOpen] = useState(true);
+    const [points, setPoints] = useState({ book: 40, chapter: 1 });
+    const [open, setOpen] = useState(false);
 
     const { book, chapter } = points;
+
     const bibleBook = useMemo(() => bibleData.filter((verse) => verse.book === book), [points]);
     const bibleChapter = useMemo(() => bibleBook.filter((verser) => verser.chapter === chapter), [points]);
 
@@ -47,30 +46,34 @@ function ApplictionReader() {
 
     return (
         <div className='reader'>
-            <div className='meta-wrapper'>
+            <div className="reader-header">
+                <div className='meta-wrapper'>
 
-                <div className='meta'>
-                    <span className='book'>{bibleMeta[book - 1].name}</span>
-                    <span className='chapter'>{chapter}</span>
-                    <button className='picker-toogle'><i className='bi bi-chevron-down'></i></button>
+                    <div className='meta'>
+                        <span className='book'>{bibleMeta[book - 1].name}</span>
+                        <span className='chapter'>{chapter}</span>
+                        <button className='picker-toogle' onClick={() => setOpen(!open)}><i className='bi bi-chevron-down'></i></button>
+                    </div>
+                    <div className='controls'>
+                        <button onClick={goPrev}>
+                            <i className='bi bi-chevron-left'></i>
+                        </button>
+                        <button onClick={goNext}>
+                            <i className='bi bi-chevron-right'></i>
+                        </button>
+                    </div>
                 </div>
-                <div className='controls'>
-                    <button onClick={goPrev}>
-                        <i className='bi bi-chevron-left'></i>
-                    </button>
-                    <button onClick={goNext}>
-                        <i className='bi bi-chevron-right'></i>
-                    </button>
-                </div>
+                <ReferencePicker
+                    points={points}
+                    setPoints={setPoints}
+                    setOpen={setOpen}
+                    className={`picker ${open && 'open'}`}
+                ></ReferencePicker>
             </div>
-            {open && (
-                <ReferencePicker points={points} setPoints={setPoints} setOpen={setOpen}></ReferencePicker>
-            )}
             <div className='verses'>
                 {
                     bibleChapter.map((verse) => (
                         <div key={verse.id} className='verse-card'>
-
                             <span className='verse-num'>{verse.verse}</span>
                             <p className='verse-text'>{verse.text}</p>
                         </div>

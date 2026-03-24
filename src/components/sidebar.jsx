@@ -6,11 +6,12 @@ import SidebarToolBox from "./toolbox";
 
 import "./styles/sidebar.css";
 
-function ApplicationSideBar() {
+function ApplicationSideBar({currentView, setCurrentView}) {
 
     const [open, setOpen] = useState(true);
 
     const safeOpen = () => !open && setOpen(true);
+    const setView = (name) => currentView !== name && setCurrentView(name);
 
     return (
         <div className={`sidebar ${open && 'open'}`}>
@@ -19,9 +20,9 @@ function ApplicationSideBar() {
                     <i className="bi bi-list"></i>
                 </button>
             </div>
-            <ApplicationSearchBar safeOpen={safeOpen}></ApplicationSearchBar>
-            <SideBarNavigationItems open={open} setOpen={setOpen}></SideBarNavigationItems>
-            <SidebarToolBox></SidebarToolBox>
+            <ApplicationSearchBar safeOpen={safeOpen} ></ApplicationSearchBar>
+            <SideBarNavigationItems safeOpen={safeOpen} setView={setView}></SideBarNavigationItems>
+            <SidebarToolBox safeOpen={safeOpen} setView={setView}></SidebarToolBox>
         </div>
     )
 }

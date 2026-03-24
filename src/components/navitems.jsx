@@ -1,20 +1,20 @@
-function SideBarNavigationItems({open, setOpen}) {
+function SideBarNavigationItems({ safeOpen, setView }) {
 
     const links = [
-        { icon: 'book', label: 'La Bible' },
-        { icon: 'bi bi-bookmark', label: 'Marques' },
-        { icon: 'pen', label: 'Notes' },
+        { icon: 'book', label: 'La Bible', view: 'bible' },
+        { icon: 'bi bi-bookmark', label: 'Marques', view: 'bookmarks' },
+        { icon: 'pen', label: 'Notes', view: 'notes' },
     ];
 
-    const handleClick = () => {
-
-        if(!open) setOpen(true);
+    const handleClick = (view) => {
+        safeOpen();
+        setView(view);
     }
     return (
         <div className="nav-items mt-4 mb-4">
             {
                 links.map((link) => (
-                    <li className="nav-item" onClick={handleClick}>
+                    <li key={link.icon} className="nav-item" onClick={() => handleClick(link.view)}>
                         <i className={`bi bi-${link.icon}`}></i>
                         <span className="tooltip">{link.label}</span>
                     </li>

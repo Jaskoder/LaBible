@@ -1,40 +1,51 @@
 import { useState, useMemo } from 'react';
 import bibleMeta from '../biblemeta.json';
+import resolveCurrentPart from '../helpers/resolvecurrentpart';
+import splitBibleParts from '../helpers/splitBibleParts';
 
 import './styles/picker.css';
 
-function ReferencePicker({ points, setPoints, setOpen}) {
+
+
+function ReferencePicker({ points, setPoints, setOpen, ...props }) {
 
     const { book, chapter } = points;
-    const targetBook = useMemo(() => book, [points])
-    const numberOfChapters = useMemo(() => bibleMeta[targetBook-1].chapters, [points]);
+    const [targetPart, setTargetPart] = useState(resolveCurrentPart(book));
 
-    const setBook = (index) => setPoints(prev => ({ ...prev, ['book']: index }));
-    const setChapter = (index) => setPoints(prev => ({ ...prev, ['chapter']: index }))
+    const bibleParts = useMemo(() => splitBibleParts(), []);
+    const targetBook = useMemo(() => book, [points]);
+    const targetBooks = useMemo(() => bibleParts[targetPart], [targetPart]);
+    const numberOfChapters = useMemo(() => bibleMeta[targetBook - 1].chapters, [points]);
 
-    console.log(numberOfChapters, targetBook)
+    const setTargetTo = (name, index) => setPoints(prev => ({ ...prev, [name]: index }));
 
-    /*const gotTo = (index) => {
+    const handleSetBook = (bookOrder) => {
 
-        setPoints({
-            book: targetBook,
-            chapter: index,
-        })
-    } */
+        const maximumChapters = bibleMeta[bookOrder - 1].chapters;
+        let targetBookChapter = chapter;
 
+        if (targetBookChapter > maximumChapters) targetBookChapter = 1;
+
+        setTargetTo('book', bookOrder);
+        setTargetTo('chapter', targetBookChapter);
+    }
 
     const goToTarget = (chapindex) => {
-        setChapter(chapindex);
+        setTargetTo('chapter', chapindex);
         setOpen(false);
     }
 
     return (
-        <div className='picker'>
+        <div {...props}>
+            <div className='parts-picker'>
+                <button className={`part ${targetPart === 0 && 'active'}`} onClick={() => setTargetPart(0)}>Ancien Testament</button>
+                <button className={`part ${targetPart === 1 && 'active'}`} onClick={() => setTargetPart(1)}>Nouveau Testament</button>
+            </div>
             <div className='books'>
                 {
-                    bibleMeta.map((meta, i) => (
-                        <li className={`book-item ${targetBook == i+1  ? 'active' : ''}`}
-                            onClick={() => setBook(i + 1)}
+                    targetBooks.map((meta, i) => (
+                        <li key={meta.name} className={`book-item ${targetBook == meta.order ? 'active' : ''}`}
+                            onClick={() => handleSetBook(meta.order)}
                         >
                             <span>{meta.name}</span>
                         </li>
@@ -44,7 +55,7 @@ function ReferencePicker({ points, setPoints, setOpen}) {
             <div className='chapters'>
                 {
                     Array.from({ length: numberOfChapters }).map((_, i) => (
-                        <button className={`chap-picker ${chapter === i + 1 ? 'active' : ''}`}
+                        <button key={`btn-${i}`} className={`chap-picker ${chapter === i + 1 ? 'active' : ''}`}
                             onClick={() => goToTarget(i + 1)}
 
                         >
