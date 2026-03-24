@@ -5,6 +5,8 @@
     gap: 0.6rem;
     padding: 1rem;
     background-color: var(--box-background);
+    max-height: 600px;
+    overflow-y: scroll;
 }
 
 .picker.open {

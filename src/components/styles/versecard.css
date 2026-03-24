@@ -1,0 +1,11 @@
+.verse-card {
+
+}
+
+.modal {
+
+    width: 360px;
+    min-height: 360px;
+    background-color: var(--background-hover);
+    transform: translateY(-100%);
+}

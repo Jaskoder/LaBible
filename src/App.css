@@ -3,3 +3,15 @@
   max-height: 100dvh;
   overflow-y: hidden;
 }
+
+.content-view {
+    padding: 2rem;
+    position: relative;
+    width: calc(100vw - 100px);
+}
+body:has(.sidebar.open) {
+
+    .content-view {
+        width: calc(100vw - 280px);
+    }
+}

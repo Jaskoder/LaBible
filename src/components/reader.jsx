@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import bibleData from '../bible.json';
 import bibleMeta from '../biblemeta.json';
+import VerseCard from './versercard';
 import ReferencePicker from './picker';
 import "./styles/reader.css";
 
@@ -73,10 +74,7 @@ function ApplictionReader() {
             <div className='verses'>
                 {
                     bibleChapter.map((verse) => (
-                        <div key={verse.id} className='verse-card'>
-                            <span className='verse-num'>{verse.verse}</span>
-                            <p className='verse-text'>{verse.text}</p>
-                        </div>
+                        <VerseCard key={verse.id} verse={verse}></VerseCard>
                     ))
                 }
             </div>

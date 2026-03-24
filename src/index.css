@@ -10,16 +10,16 @@
 
 .light {
 
-    --body-background: hsl(220, 16%, 90%);
-    --box-background: hsl(220, 16%, 95%);
-    --element-background: hsl(220, 16%, 85%);
+    --body-background: hsl(0, 16%, 95%);
+    --box-background: hsl(0, 16%, 90%);
+    --element-background: hsl(0, 16%, 85%);
 
-    --text-primary-color: hsl(220, 16%, 10%);
-    --text-secondary-color: hsl(220, 16%, 30%);
+    --text-primary-color: hsl(0, 16%, 10%);
+    --text-secondary-color: hsl(0, 16%, 30%);
 
-    --border-color: hsl(220, 16%, 60%);
+    --border-color: hsl(0, 16%, 60%);
 
-    --active-highlight: hsl(220, 50%, 90%);
+    --active-highlight: hsl(0, 50%, 90%);
 
     * {
         color: var(--text-primary-color);
@@ -36,6 +36,7 @@
 
     --border-color: hsl(220, 16%, 40%);
     --active-highlight: hsl(220, 50%, 10%);
+    --background-hover : hsl(220, 16%, 7%);
 
     * {
         color: var(--text-primary-color);

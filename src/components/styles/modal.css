@@ -1,0 +1,112 @@
+.modal {
+
+    position: fixed;
+    width: 360px;
+    min-height: 300px;
+    background-color: var(--box-background);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 8px;
+    transform: translateY(-100%);
+}
+
+.modal .verse {
+    line-height: 1.5;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.actions li {
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    height: 44px;
+    background-color: var(--element-background);
+    margin: .6rem 0;
+    padding: 0 .6rem;
+    border-radius: 8px;
+}
+
+.modal .marks {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+.marks span {
+    height: 36px;
+    width: 36px;
+    background: var(--element-background);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mark {
+
+    border: 3px solid;
+}
+
+.mark.red {
+    border-color: var(--color-red-500);
+}
+
+.mark.blue {
+    border-color: var(--color-blue-500);
+}
+
+.mark.green {
+    border-color: var(--color-green-500);
+}
+
+.mark.yellow {
+    border-color: var(--color-yellow-500);
+}
+
+.mark.active {
+
+    &::after {
+        content: '';
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+    }
+}
+
+.mark.green.active {
+
+    &::after {
+        background-color: var(--color-green-500);
+    }
+}
+
+.mark.blue.active {
+
+    &::after {
+        background-color: var(--color-blue-500);
+    }
+}
+
+.mark.yellow.active {
+
+    &::after {
+        background-color: var(--color-yellow-500);
+    }
+}
+
+.mark.red.active {
+
+    &::after {
+        background-color: var(--color-red-500);
+    }
+}

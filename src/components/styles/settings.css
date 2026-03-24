@@ -1,0 +1,38 @@
+.settings {
+    width: 100%;
+}
+
+.settings .title h2 {
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.group {
+    border-bottom: 1px solid var(--border-color);
+    margin: .6rem 0;
+    padding: .6rem;
+}
+
+.group .label {
+    display: block;
+    margin: .4rem 0;
+    color: var(--text-secondary-color);
+}
+
+.theme-group {
+
+    button {
+        height: 44px;
+        width: 128px;
+        background: var(--element-background);
+        margin-right: 0.6rem;
+        border-radius: 8px;
+    }
+
+    button.active {
+        background-color: var(--active-highlight);
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+    }
+}
