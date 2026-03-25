@@ -3,7 +3,7 @@ import db from "../db/db";
 export async function hasBeenMarked(verse) {
     try {
         const markedVerses = await db.fetchall('marked-verses');
-        const mark = markedVerses.find((v) => v.id === verse.id); // Correction: === au lieu de ==
+        const mark = markedVerses.find((v) => v.id === verse.id);
         return [mark, mark?.mark || null];
     } catch (e) {
         console.log(e.message);
