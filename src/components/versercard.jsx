@@ -1,45 +1,44 @@
-import { useState, Fragment, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Modal from "./modal";
-import { hasBeenMarked, markVerse } from "../helpers/marker";
 
-function VerseCard({ verse, ...props }) {
+export default function VerseCard(props) {
+    const {
+        verse,
+        mark,
+        focused,
+        setFocused,
+        handleDoubleClick,
+        handleSetVmark,
+        pos
+    } = props;
 
-    const [isMarked, mark] = useMemo(() => hasBeenMarked(verse), []);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
-    const [modal, setModal] = useState(false);
-    const [vmark, setMark] = useState( mark || 'default');
+    const [vmark, setVmark] = useState(mark);
 
-    //console.log(isMarked, mark)
+    useEffect(() => {
+        setVmark(mark);
+    }, [mark]);
 
+    const handleSetMark = (newMark) => {
+        setVmark(newMark);
+        handleSetVmark(verse.id, newMark);
+    };
 
-    const handleClick = (e) => {
-        let x = e.clientX;
-        let y = e.clientY;
-
-        if (y < 300) y = 360;
-
-        setPosition({ x, y });
-        setModal(true);
-    }
+    const isFocused = focused && focused.id === verse.id;
 
     return (
-        <Fragment>
-            <div className={`verse-card ${vmark}`} onDoubleClick={handleClick}>
+        <div>
+            <div className={`verse-card ${vmark}`} onDoubleClick={(e) => handleDoubleClick(e, verse)}>
                 <span className="verse-num">{verse.verse}</span>
                 <p className="verse-text">{verse.text}</p>
             </div>
-
-            {modal && (
-                <Modal setModal={setModal} verse={verse} setMark={setMark} style={
-                    {
-                        top: position.y,
-                        left: position.x
-                    }
-                }></Modal>
+            {isFocused && (
+                <Modal
+                    verse={verse}
+                    pos={pos}
+                    setFocused={setFocused}
+                    setVmark={handleSetMark}
+                />
             )}
-        </Fragment>
-
-    )
+        </div>
+    );
 }
-
-export default VerseCard

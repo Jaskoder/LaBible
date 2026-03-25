@@ -1,21 +1,36 @@
-import { fetchMarkedVerses } from "../db/db";
-import { writeToLocalStorage } from "../db/db";
+import db from "../db/db";
 
-export function hasBeenMarked(verse) {
-
-    const markedVerses = fetchMarkedVerses();
-    const { id } = verse;
-    const mark = markedVerses.find((v) => v.id == verse.id);
-
-    return [mark, mark?.mark];
+export async function hasBeenMarked(verse) {
+    try {
+        const markedVerses = await db.fetchall('marked-verses');
+        const mark = markedVerses.find((v) => v.id === verse.id); // Correction: === au lieu de ==
+        return [mark, mark?.mark || null];
+    } catch (e) {
+        console.log(e.message);
+        return [null, null];
+    }
 }
 
-export function markVerse(verse, mark) {
+export async function markVerse(verse, mark) {
+    try {
+        await db.put('marked-verses', { id: verse.id, mark });
+        return true;
+    } catch (e) {
+        console.log(e.message);
+        return false;
+    }
+}
 
-    const markedVerses = fetchMarkedVerses();
-    const newVerse = { id: verse.id, mark };
-
-    markedVerses.push(newVerse);
-
-    writeToLocalStorage('marked-verses', markedVerses);
+export async function getMarkedVerses() {
+    try {
+        const markedVerses = await db.fetchall('marked-verses');
+        const marksMap = {};
+        markedVerses.forEach(item => {
+            marksMap[item.id] = item.mark;
+        });
+        return marksMap;
+    } catch (e) {
+        console.log(e.message);
+        return {};
+    }
 }
