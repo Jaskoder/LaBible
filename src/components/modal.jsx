@@ -1,18 +1,20 @@
 import { markVerse } from '../helpers/marker';
+import { unMarkVerse } from '../helpers/marker';
 import './styles/modal.css';
 
 export default function Modal(props) {
-    const { 
+    const {
         verse,
-        setVmark, 
-        setFocused, 
-        pos 
+        setVmark,
+        deleteMark,
+        setFocused,
+        pos
     } = props;
 
     const controls = [
         { label: 'Marquer', action: 'mark', icon: 'bookmarks' },
         { label: 'Ajouter aux notes', action: 'note', icon: 'pen' },
-        { label: 'Partager', action: 'share', icon: 'share' },
+        { label: 'Copier', action: 'copy', icon: 'clipboard' },
     ];
 
     const colorMarks = ['green', 'red', 'blue', 'yellow'];
@@ -23,9 +25,10 @@ export default function Modal(props) {
         setFocused();
     };
 
+
     return (
         <div className="modal" style={{
-            top: pos.y, 
+            top: pos.y,
             left: pos.x
         }}>
             <div className="verse">
@@ -47,8 +50,8 @@ export default function Modal(props) {
                         onClick={() => handleMarkClick(c)}
                     />
                 ))}
-                <button className='copy'>
-                    <i className='bi bi-clipboard'></i>
+                <button className='delete-btn' onClick={() => deleteMark(verse.id)}>
+                    <i className='bi bi-trash'></i>
                 </button>
                 <button className='close' onClick={() => setFocused()}>
                     <i className='bi bi-x'></i>

@@ -21,6 +21,17 @@ export async function markVerse(verse, mark) {
     }
 }
 
+export async function unMarkVerse(verseId) {
+
+    try {
+        await db.delete('marked-verses', verseId);
+        return true;
+    } catch (e) {
+        console.log(e.message);
+        return false;
+    }
+}
+
 export async function getMarkedVerses() {
     try {
         const markedVerses = await db.fetchall('marked-verses');

@@ -10,10 +10,6 @@ function SidebarToolBox({ safeOpen, setView }) {
                 <i className="bi bi-gear"></i>
                 <span className="tooltip">Reglages</span>
             </li>
-            <li className="item" onClick={() => handleClick('user')}>
-                <i className="bi bi-person"></i>
-                <span className="tooltip">Utilisateur</span>
-            </li>
         </div>
     )
 }

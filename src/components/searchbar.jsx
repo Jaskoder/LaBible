@@ -1,15 +1,21 @@
 import { useState } from 'react';
+import { useSearch, useView } from '../helpers/hooks';
 import './styles/searchbar.css';
 
-function ApplicationSearchBar({safeOpen}) {
+function ApplicationSearchBar({ safeOpen }) {
 
-    const [searchString, setSearchString] = useState("");
+    const [search, setSearch] = useSearch();
+    const [view, setView] = useView();
 
     const handleChange = (e) => {
         const text = e.target.value;
 
-        setSearchString(text);
+        if(view !== 'search') setView('search');
+
+        setSearch(text);
     }
+
+    const handleFocus = () => safeOpen();
 
     const handleClick = () => {
 
@@ -17,12 +23,14 @@ function ApplicationSearchBar({safeOpen}) {
     }
     return (
         <div className='searchbar'>
-            <input 
-                type='text' 
-                placeholder='Rechercher...' 
-                value={searchString} 
-                onInput={handleChange}>
-                
+            <input
+                type='text'
+                placeholder='Rechercher...'
+                value={search}
+                onInput={handleChange}
+                onFocus={handleFocus}
+            >
+
             </input>
             <button className='search' onClick={handleClick}>
                 <i className='bi bi-search'></i>

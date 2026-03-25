@@ -51,6 +51,26 @@ class DB {
         return false;
     }
 
+    async delete(store, keyPath) {
+
+        if(!this.db) await this.open();
+
+        if(this.db.objectStoreNames.contains(store)) {
+
+            const transaction = this.db.transaction([store], 'readwrite');
+            const objectStore = transaction.objectStore(store);
+
+            return new Promise((resolve, reject) => {
+
+                const delrequest = objectStore.delete(keyPath);
+
+                delrequest.onsuccess = () => resolve(true);
+                delrequest.onerror = (e) => reject(e.target.error);
+            })
+
+        }
+    }
+
     async fetchall(store) {
         if (!this.db) await this.open();
 

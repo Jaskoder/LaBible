@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { usePoints } from '../helpers/hooks';
 import bibleData from '../bible.json';
 import bibleMeta from '../biblemeta.json';
 import VersesReader from './verses';
@@ -8,7 +9,7 @@ import "./styles/reader.css";
 
 function ApplictionReader() {
 
-    const [points, setPoints] = useState({ book: 40, chapter: 1 });
+    const [points, setPoints] = usePoints();
     const [open, setOpen] = useState(false);
 
     const { book, chapter } = points;

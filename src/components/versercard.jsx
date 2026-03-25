@@ -9,6 +9,7 @@ export default function VerseCard(props) {
         setFocused,
         handleDoubleClick,
         handleSetVmark,
+        handleDeleteMark,
         pos
     } = props;
 
@@ -37,6 +38,7 @@ export default function VerseCard(props) {
                     pos={pos}
                     setFocused={setFocused}
                     setVmark={handleSetMark}
+                    deleteMark={handleDeleteMark}
                 />
             )}
         </div>

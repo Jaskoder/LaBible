@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import { getMarkedVerses, markVerse } from "../helpers/marker";
+import { getMarkedVerses, markVerse, unMarkVerse } from "../helpers/marker";
 import VerseCard from "./versercard";
 
 export default function VersesReader({ verses }) {
@@ -42,6 +42,19 @@ export default function VersesReader({ verses }) {
         await markVerse(verse, mark);
     }, [verses]);
 
+    const handleDeleteMark = useCallback(async (verseId) => {
+
+        const verse = verses.find(v => v.id === verseId);
+        if (!verse) return;
+
+        setMarkedVerses(prev => ({
+            ...prev,
+            [verseId]: ''
+        }));
+
+        await unMarkVerse(verseId);
+    }, [verses])
+
     const handleCloseModal = useCallback(() => {
 
         setFocused(null);
@@ -66,6 +79,7 @@ export default function VersesReader({ verses }) {
                         handleDoubleClick={handleDoubleClick}
                         handleSetVmark={handleSetVmark}
                         pos={pos}
+                        handleDeleteMark={handleDeleteMark}
                     />
                 );
             })}

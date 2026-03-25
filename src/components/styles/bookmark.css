@@ -1,0 +1,43 @@
+.bookmark {
+
+    background-color: var( --box-background);
+    padding: 1rem;
+    margin: .6rem 0;
+    border-radius: 8px;
+    min-height: 200px;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.bookmark .meta span {
+
+    color: var(--text-secondary-color);
+}
+
+.bookmark .meta {
+
+    display: flex;
+    gap: .6rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.bookmark button {
+
+    height: 36px;
+    width: 36px;
+    background-color: var(--element-background);
+    border-radius: 50%;
+}
+
+.bookmark .actions {
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .6rem;
+}

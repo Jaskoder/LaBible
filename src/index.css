@@ -5,7 +5,7 @@
 }
 
 :root {
-    --primary-color: hsl(220, 70%, 50%);
+    
 }
 
 .light {
@@ -27,16 +27,159 @@
 }
 
 .dark {
-    --body-background: hsl(220, 16%, 5%);
-    --box-background: hsl(220, 16%, 10%);
-    --element-background: hsl(220, 16%, 15%);
 
-    --text-primary-color: hsl(220, 16%, 90%);
-    --text-secondary-color: hsl(220, 10%, 70%);
+    --primary-color: hsl(240, 30%, 50%);
 
-    --border-color: hsl(220, 16%, 40%);
-    --active-highlight: hsl(220, 50%, 10%);
-    --background-hover : hsl(220, 16%, 7%);
+    --body-background: hsl(240, 6%, 5%);
+    --box-background: hsl(240, 6%, 10%);
+    --element-background: hsl(240, 6%, 15%);
+
+    --text-primary-color: hsl(240, 6%, 90%);
+    --text-secondary-color: hsl(240, 0%, 70%);
+
+    --border-color: hsl(240, 6%, 40%);
+    --active-highlight: hsl(240, 0%, 10%);
+    --background-hover : hsl(240, 6%, 7%);
+
+    * {
+        color: var(--text-primary-color);
+    }
+}
+
+.chestnut {
+
+    --primary-color: hsl(25, 60%, 30%);
+
+    --body-background: hsl(25, 6%, 5%);
+    --box-background: hsl(25, 6%, 10%);
+    --element-background: hsl(25, 6%, 15%);
+
+    --text-primary-color: hsl(25, 6%, 90%);
+    --text-secondary-color: hsl(25, 0%, 70%);
+
+    --border-color: hsl(25, 6%, 40%);
+    --active-highlight: hsl(25, 0%, 10%);
+    --background-hover : hsl(25, 6%, 7%);
+
+    * {
+        color: var(--text-primary-color);
+    }
+}
+
+.sage {
+
+    --primary-color: hsl(95, 60%, 30%);
+
+    --body-background: hsl(95, 6%, 5%);
+    --box-background: hsl(95, 6%, 10%);
+    --element-background: hsl(95, 6%, 15%);
+
+    --text-primary-color: hsl(95, 6%, 90%);
+    --text-secondary-color: hsl(95, 0%, 70%);
+
+    --border-color: hsl(95, 6%, 40%);
+    --active-highlight: hsl(95, 0%, 10%);
+    --background-hover : hsl(95, 6%, 7%);
+
+    * {
+        color: var(--text-primary-color);
+    }
+}
+
+.cedar {
+
+    --primary-color: hsl(350, 60%, 30%);
+
+    --body-background: hsl(350, 6%, 5%);
+    --box-background: hsl(350, 6%, 10%);
+    --element-background: hsl(350, 6%, 15%);
+
+    --text-primary-color: hsl(350, 6%, 90%);
+    --text-secondary-color: hsl(350, 0%, 70%);
+
+    --border-color: hsl(350, 6%, 40%);
+    --active-highlight: hsl(350, 0%, 10%);
+    --background-hover : hsl(350, 6%, 7%);
+
+    * {
+        color: var(--text-primary-color);
+    }
+}
+
+.emeraude {
+
+    --primary-color: hsl(145, 60%, 30%);
+
+    --body-background: hsl(145, 6%, 5%);
+    --box-background: hsl(145, 6%, 10%);
+    --element-background: hsl(145, 6%, 15%);
+
+    --text-primary-color: hsl(145, 6%, 90%);
+    --text-secondary-color: hsl(145, 0%, 70%);
+
+    --border-color: hsl(145, 6%, 40%);
+    --active-highlight: hsl(145, 20%, 10%);
+    --background-hover : hsl(145, 6%, 7%);
+
+    * {
+        color: var(--text-primary-color);
+    }
+}
+
+.slate {
+
+    --primary-color: hsl(205, 60%, 30%);
+
+    --body-background: hsl(205, 6%, 5%);
+    --box-background: hsl(205, 6%, 10%);
+    --element-background: hsl(205, 6%, 15%);
+
+    --text-primary-color: hsl(205, 6%, 90%);
+    --text-secondary-color: hsl(205, 0%, 70%);
+
+    --border-color: hsl(205, 6%, 40%);
+    --active-highlight: hsl(205, 0%, 10%);
+    --background-hover : hsl(205, 6%, 7%);
+
+    * {
+        color: var(--text-primary-color);
+    }
+}
+
+.miel {
+
+    --primary-color: hsl(40, 60%, 30%);
+
+    --body-background: hsl(40, 6%, 5%);
+    --box-background: hsl(40, 6%, 10%);
+    --element-background: hsl(40, 6%, 15%);
+
+    --text-primary-color: hsl(40, 6%, 90%);
+    --text-secondary-color: hsl(40, 0%, 70%);
+
+    --border-color: hsl(40, 6%, 40%);
+    --active-highlight: hsl(40, 0%, 10%);
+    --background-hover : hsl(40, 6%, 7%);
+
+    * {
+        color: var(--text-primary-color);
+    }
+}
+
+.juniper {
+
+    --primary-color: hsl(165, 60%, 30%);
+
+    --body-background: hsl(165, 6%, 5%);
+    --box-background: hsl(165, 6%, 10%);
+    --element-background: hsl(165, 6%, 15%);
+
+    --text-primary-color: hsl(165, 6%, 90%);
+    --text-secondary-color: hsl(165, 0%, 70%);
+
+    --border-color: hsl(165, 6%, 40%);
+    --active-highlight: hsl(165, 0%, 10%);
+    --background-hover : hsl(165, 6%, 7%);
 
     * {
         color: var(--text-primary-color);

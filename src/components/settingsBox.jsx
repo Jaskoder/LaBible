@@ -4,7 +4,7 @@ import "./styles/settings.css";
 function SettingBox() {
 
     const [theme, setTheme] = useTheme();
-    const themeGroup = ["light", 'dark'];
+    const themeGroup = ["light", 'dark', 'slate', 'miel', 'emeraude', 'cedar', 'sage', 'chestnut'];
 
     return (
         <div className="settings">
