@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { SettingsContex, ViewContext, PointsContex, SearchContext, useTheme } from "./helpers/hooks";
+import {
+  SettingsContex,
+  ViewContext,
+  PointsContex,
+  SearchContext,
+  SearchValueContext,
+  useTheme
+} from "./helpers/hooks";
 
 import ApplicationSideBar from "./components/sidebar";
 import ApplicationContentDisplayer from "./components/content";
@@ -27,9 +34,10 @@ function AppComponent({ children }) {
 }
 
 function App() {
-  const [currentView, setCurrentView] = useState("bible");
+  const [currentView, setCurrentView] = useState("search");
   const [points, setPoints] = useState({ book: 1, chapter: 1 });
   const [search, setSearch] = useState(null);
+  const [value, setValue] = useState('');
   const [settings, setSettings] = useState({
     theme: localStorage.getItem('bible_app_theme') || 'dark',
     appFont: "",
@@ -40,24 +48,26 @@ function App() {
       <ViewContext.Provider value={[currentView, setCurrentView]}>
         <PointsContex.Provider value={[points, setPoints]}>
           <SearchContext.Provider value={[search, setSearch]}>
-            <AppComponent>
-              <ApplicationSideBar
-                currentView={currentView}
-                setCurrentView={setCurrentView}
-              ></ApplicationSideBar>
+            <SearchValueContext.Provider value={[value, setValue]}>
+              <AppComponent>
+                <ApplicationSideBar
+                  currentView={currentView}
+                  setCurrentView={setCurrentView}
+                ></ApplicationSideBar>
 
-              <div className="content-view">
-                {currentView === "bible" && (
-                  <ApplicationContentDisplayer
-                    title={"La Bible"}
-                  ></ApplicationContentDisplayer>
-                )}
-                {currentView === "bookmarks" && <BookMarks></BookMarks>}
-                {currentView === "notes" && <h1>Notes</h1>}
-                {currentView === "settings" && <SettingBox></SettingBox>}
-                {currentView === "search" && <SearchScreen></SearchScreen>}
-              </div>
-            </AppComponent>
+                <div className="content-view">
+                  {currentView === "bible" && (
+                    <ApplicationContentDisplayer
+                      title={"La Bible"}
+                    ></ApplicationContentDisplayer>
+                  )}
+                  {currentView === "bookmarks" && <BookMarks></BookMarks>}
+                  {currentView === "notes" && <h1>Notes</h1>}
+                  {currentView === "settings" && <SettingBox></SettingBox>}
+                  {currentView === "search" && <SearchScreen></SearchScreen>}
+                </div>
+              </AppComponent>
+            </SearchValueContext.Provider>
           </SearchContext.Provider>
         </PointsContex.Provider>
       </ViewContext.Provider>

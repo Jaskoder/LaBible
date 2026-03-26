@@ -1,0 +1,39 @@
+.result {
+
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.verse-match {
+
+    min-height: 128px;
+    background-color: var(--box-background);
+    margin: .6rem 0;
+    padding: 1rem;
+}
+
+.result .tips {
+
+    display: block;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.verse-match button {
+
+    height: 36px;
+    width: 36px;
+    background-color: var(--element-background);
+    border-radius: 50%;
+}
+
+.verse-match .ref {
+
+    color: var(--text-secondary-color);
+    margin-top: .6rem;
+}
+
+.match-highlight {
+
+    background-color: var(--primary-color);
+}

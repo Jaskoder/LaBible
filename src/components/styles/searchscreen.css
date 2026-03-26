@@ -1,32 +1,9 @@
-.verses-search {
+.search-screen {
 
-    height: 100vh;
-    overflow-y: scroll;
+    
 }
 
-.verses-search .title {
-
+.search-screen .title h2 {
     font-size: 18px;
     font-weight: bold;
-}
-
-.verses-search .tips {
-
-    display: block;
-    margin: .6rem 0;
-    color: var(--text-secondary-color);
-}
-
-.verses-search .verse-match {
-
-    min-height: 128px;
-    background-color: var(--box-background);
-    margin: .6rem 0;
-    padding: 1rem;
-    border-radius: 8px;
-}
-
-.match-mark {
-
-    background-color: var(--primary-color);
 }

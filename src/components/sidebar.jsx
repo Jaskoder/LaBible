@@ -20,7 +20,7 @@ function ApplicationSideBar({currentView, setCurrentView}) {
                     <i className="bi bi-list"></i>
                 </button>
             </div>
-            <ApplicationSearchBar safeOpen={safeOpen} ></ApplicationSearchBar>
+            <ApplicationSearchBar placeholder='Recherche...' safeOpen={safeOpen} ></ApplicationSearchBar>
             <SideBarNavigationItems safeOpen={safeOpen} setView={setView}></SideBarNavigationItems>
             <SidebarToolBox safeOpen={safeOpen} setView={setView}></SidebarToolBox>
         </div>

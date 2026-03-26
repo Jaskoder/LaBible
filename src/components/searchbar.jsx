@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { useSearch, useView } from '../helpers/hooks';
+import { useSearch, useView, useValue } from '../helpers/hooks';
 import './styles/searchbar.css';
 
-function ApplicationSearchBar({ safeOpen }) {
+function ApplicationSearchBar({ placeholder, safeOpen }) {
 
     const [search, setSearch] = useSearch();
+    const [value, setValue] = useValue();
     const [view, setView] = useView();
 
     const handleChange = (e) => {
@@ -12,21 +13,27 @@ function ApplicationSearchBar({ safeOpen }) {
 
         if(view !== 'search') setView('search');
 
-        setSearch(text);
+        setValue(text);
     }
 
-    const handleFocus = () => safeOpen();
+    const handleFocus = () => {
+        if(safeOpen) safeOpen();
+    };
 
     const handleClick = () => {
 
-        safeOpen();
+        if(safeOpen) safeOpen();
+        if( value !== search) {
+            setSearch(value);
+        }
+
     }
     return (
         <div className='searchbar'>
             <input
                 type='text'
-                placeholder='Rechercher...'
-                value={search}
+                placeholder={placeholder}
+                value={value}
                 onInput={handleChange}
                 onFocus={handleFocus}
             >

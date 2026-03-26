@@ -4,7 +4,8 @@ export const SettingsContex = createContext({});
 export const ViewContext = createContext('bible');
 export const PointsContex = createContext({ book: 1, chapter: 1 });
 export const SearchContext = createContext(null);
-
+export const SearchValueContext = createContext('');
+ 
 export const useTheme = () => {
 
     const [settings, setSettings] = useContext(SettingsContex);
@@ -34,4 +35,9 @@ export const useSearch = () => {
     const [search, setSearch] = useContext(SearchContext);
 
     return [search, setSearch]
+}
+
+export const useValue = () => {
+
+    return useContext(SearchValueContext);
 }

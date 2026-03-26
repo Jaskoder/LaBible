@@ -200,3 +200,8 @@ li {
 ::-webkit-scrollbar-thumb {
     background-color: var(--primary-color);
 }
+
+.highlight {
+
+    color: var(--primary-color);
+}

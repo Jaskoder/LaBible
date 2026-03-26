@@ -4,10 +4,11 @@ function SideBarNavigationItems({ safeOpen, setView }) {
         { icon: 'book', label: 'La Bible', view: 'bible' },
         { icon: 'bi bi-bookmark', label: 'Marques', view: 'bookmarks' },
         { icon: 'pen', label: 'Notes', view: 'notes' },
+        { icon: 'search', label : 'Recherche', view : 'search'}
     ];
 
     const handleClick = (view) => {
-        safeOpen();
+        //safeOpen();
         setView(view);
     }
     return (
