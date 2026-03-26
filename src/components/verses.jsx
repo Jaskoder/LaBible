@@ -8,11 +8,9 @@ export default function VersesReader({ verses }) {
     const [markedVerses, setMarkedVerses] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
-    // Charger les marquages au montage
     useEffect(() => {
 
         const loadMarks = async () => {
-
             setIsLoading(true);
             const marks = await getMarkedVerses();
             setMarkedVerses(marks);
@@ -22,23 +20,19 @@ export default function VersesReader({ verses }) {
     }, []);
 
     const handleDoubleClick = useCallback((e, verse) => {
-
         setFocused(verse);
         setPos({ x: e.clientX, y: e.clientY < 360 ? 360 : e.clientY });
     }, []);
 
     const handleSetVmark = useCallback(async (verseId, mark) => {
-
         const verse = verses.find(v => v.id === verseId);
         if (!verse) return;
 
-        // Mettre à jour l'état local immédiatement
         setMarkedVerses(prev => ({
             ...prev,
             [verseId]: mark
         }));
 
-        // Persister dans IndexedDB
         await markVerse(verse, mark);
     }, [verses]);
 
@@ -55,15 +49,9 @@ export default function VersesReader({ verses }) {
         await unMarkVerse(verseId);
     }, [verses])
 
-    const handleCloseModal = useCallback(() => {
+    const handleCloseModal = useCallback(() => { setFocused(null) }, []);
 
-        setFocused(null);
-
-    }, []);
-
-    if (isLoading) {
-        return <div className="loading">Chargement des marquages...</div>;
-    }
+    if (isLoading) return <div className="loading">Chargement des marquages...</div>;
 
     return (
         <div className="verses">

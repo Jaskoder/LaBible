@@ -1,4 +1,4 @@
-.result {
+/*.result {
 
     height: 600px;
     overflow-y: scroll;
@@ -35,5 +35,61 @@
 
 .match-highlight {
 
+    background-color: var(--primary-color);
+}
+
+*/
+
+.result {
+    
+}
+
+.result .tips {
+
+    display: block;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.result-verses {
+    height: calc(100vh - 128px - 4rem);
+    overflow-y: scroll;
+}
+
+.verse-match {
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    min-height: 128px;
+    margin: .6rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--box-background);
+}
+
+.verse-match .ref-actions-wrapper {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.verse-match .actions button {
+
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    background-color: var(--element-background);
+}
+
+.verse-match .ref {
+    color: var(--text-secondary-color);
+    font-weight: bold;
+}
+
+.match-highlight {
     background-color: var(--primary-color);
 }

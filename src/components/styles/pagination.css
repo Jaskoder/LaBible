@@ -1,0 +1,35 @@
+.pagination {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 70vw;
+    overflow-x: scroll;
+    margin: 0 auto;
+}
+
+.pagination button {
+
+    display: inline-block;
+    height: 36px;
+    width: 38px;
+    border-radius: 50%;
+    background-color: var(--element-background);
+}
+
+.pagination .pages {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pages .active {
+
+    background-color: var(--primary-color);
+}

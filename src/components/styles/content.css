@@ -1,0 +1,30 @@
+.content-wrapper {
+
+    padding: 2rem;
+    width: calc(100vw - 100px);
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+.content-wrapper .title {
+    align-content: center;
+    display: block;
+    height: 56px;
+    padding: 0 2rem;
+}
+
+.content-wrapper .title h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.content-wrapper .content {
+
+    height: calc(100vh - 64px -2rem );
+}
+
+body:has(.open) {
+    .content-wrapper {
+        width: 100vw - 280px;
+    }
+}

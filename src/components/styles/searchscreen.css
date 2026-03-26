@@ -1,9 +1,4 @@
 .search-screen {
 
-    
-}
-
-.search-screen .title h2 {
-    font-size: 18px;
-    font-weight: bold;
+    height: calc(100vh - 56px - 4rem);
 }

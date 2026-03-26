@@ -193,7 +193,7 @@ li {
 
 ::-webkit-scrollbar {
 
-    width: 16px;
+    width: 8px;
     background-color: var(--element-background);
 }
 
@@ -204,4 +204,9 @@ li {
 .highlight {
 
     color: var(--primary-color);
+}
+
+html {
+
+    font-size: 16px;
 }

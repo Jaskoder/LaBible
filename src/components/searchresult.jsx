@@ -1,9 +1,10 @@
-import React, { Fragment, Suspense, useCallback, useEffect, useMemo } from "react";
+import React, { Fragment, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { useSearch, useView, usePoints } from "../helpers/hooks";
 import { customCompare } from "../helpers/compare";
 
 import bibleData from '../bible.json';
-import bibleMeta from '../biblemeta.json'
+import bibleMeta from '../biblemeta.json';
+import Pagination from "./pagination";
 import './styles/searchresult.css';
 
 
@@ -12,29 +13,44 @@ function Loading() {
     return <span>Recherche en cours...</span>
 }
 
-function renderWithTextHighlight(term, text) {
+const HighlightText = ({ text, term, highlightClass = 'match-highlight' }) => {
+    // Si le terme est vide ou non défini, retourner le texte brut
+    if (!term || term.trim() === '') {
+        return <span>{text}</span>;
+    }
 
-    const elements = [];
-    const parts = text.split(" ");
-    const re = new RegExp(term, 'i');
+    // Échapper les caractères spéciaux regex dans le terme
+    const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-    parts.forEach((part, i) => {
+    // Créer une expression régulière pour trouver toutes les occurrences (insensible à la casse)
+    const regex = new RegExp(`(${escapedTerm})`, 'gi');
 
-        if (re.test(part)) {
+    // Diviser le texte en parties avec les correspondances
+    const parts = text.split(regex);
 
-            elements.push(<span key={`part-${i}`} className="match-highlight">{term + ' '}</span>)
-        } else {
-            elements.push(part + ' ')
-        }
-    })
+    // Filtrer les parties vides et rendre avec surbrillance
+    return (
+        <span>
+            {parts.map((part, index) => {
+                // Vérifier si cette partie correspond au terme recherché
+                const isMatch = part && part.toLowerCase() === term.toLowerCase();
 
-    return elements;
-
-}
+                return isMatch ? (
+                    <span key={index} className={highlightClass}>
+                        {part}
+                    </span>
+                ) : (
+                    <span key={index}>{part}</span>
+                );
+            })}
+        </span>
+    );
+};
 
 function SearchResult() {
 
     const [search, setSearch] = useSearch();
+    const [offset, setOffset] = useState(0);
     const [_p, setPoints] = usePoints();
     const [_v, setView] = useView();
 
@@ -42,7 +58,9 @@ function SearchResult() {
     const matches = useMemo(() => {
         const verses = bibleData.filter((verse) => customCompare(search, verse.text));
         return verses;
-    }, [search]);
+    }, [search, offset]);
+
+    const lazymatches = useMemo(() => matches.slice(offset, offset + 15), [offset, search]);
 
     const goTo = useCallback((book, chapter) => {
 
@@ -54,38 +72,42 @@ function SearchResult() {
 
         <div className="result">
             <Suspense fallback={<Loading />}>
-                {
-                    matches?.length > 0 ? (
-                        <span className="tips"> La recherche a trouvé <span className="highlight">{matches.length}</span> correspondances pour le terme <span className="highlight">{search}</span></span>
-                    ) : (
-                        <span className="tips"> Aucune corespondance trouvé pour le terme {search}</span>
-                    )
-                }
-                {
-                    matches.map((verse) => {
-
-                        const children = renderWithTextHighlight(search, verse.text);
-
-                        return (
-                            <div key={`match-${verse.id}`} className="verse-match">
-                                <p>
-                                    {children}
-                                </p>
-                                <span className="ref">
-                                    {`${bibleMeta[verse.book - 1].name} ${verse.chapter}:${verse.verse}`}
-                                </span>
-                                <div className="actions flex items-center justify-end gap-1">
-                                    <button><i className="bi bi-clipboard"></i></button>
-                                    <button><i className="bi bi-share"></i></button>
-                                    <button onClick={() => goTo(verse.book, verse.chapter)}>
-                                        <i className="bi bi-box-arrow-up-right"></i>
-                                    </button>
-                                </div>
-                            </div>
+                <div className="result-verses">
+                    {
+                        matches?.length > 0 ? (
+                            <span className="tips"> La recherche a trouvé <span className="highlight">{matches.length}</span> correspondances pour le terme <span className="highlight">{search}</span></span>
+                        ) : (
+                            <span className="tips"> Aucune corespondance trouvé pour le terme {search}</span>
                         )
-                    })
-                }
+                    }
+                    {
+                        lazymatches.map((verse) => {
+
+                            
+                            return (
+                                <div key={`match-${verse.id}`} className="verse-match">
+                                    <p>
+                                        <HighlightText term={search} text={verse.text}></HighlightText>
+                                    </p>
+                                    <div className="ref-actions-wrapper">
+                                        <span className="ref">
+                                            {`${bibleMeta[verse.book - 1].name} ${verse.chapter}:${verse.verse}`}
+                                        </span>
+                                        <div className="actions flex items-center justify-end gap-1">
+                                            <button><i className="bi bi-clipboard"></i></button>
+                                            <button><i className="bi bi-share"></i></button>
+                                            <button onClick={() => goTo(verse.book, verse.chapter)}>
+                                                <i className="bi bi-box-arrow-up-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </Suspense>
+            <Pagination offset={offset} setOffset={setOffset} dataLength={matches.length} itemsPerPage={15}></Pagination>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { useView, usePoints } from '../helpers/hooks';
+import { useView, usePoints, useAlert } from '../helpers/hooks';
 import bibleMeta from '../biblemeta.json';
 
 import './styles/bookmark.css';
@@ -8,6 +8,7 @@ function BookMark({ verse }) {
 
     const [view, setView] = useView();
     const [points, setPoints] = usePoints();
+    const [alert, setAlert] = useAlert();
 
     const { book, chapter } = verse;
     const actionButtons = [
@@ -16,11 +17,15 @@ function BookMark({ verse }) {
         { action: 'goto', label: 'Copier', icon: 'box-arrow-up-right' },
     ];
 
+    const createAlert = (message, type) => setAlert({ message, type });
+
     const handleButtonsAction = useCallback((action) => {
 
         switch (action) {
 
             case 'copy':
+                navigator.clipboard.writeText(verse.text);
+                createAlert('Copié dans le presse papier', 'success');
                 break;
             case 'share':
                 break;

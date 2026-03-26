@@ -11,15 +11,15 @@
     right: 0;
     left: 0;
     background-color: var(--body-background);
-    padding: 1rem;
+    padding: .6rem 0;
 }
 
 .reader-header .meta-wrapper {
 
-    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 2rem;
 }
 
 .reader .controls, .reader .meta {
@@ -49,9 +49,9 @@
 
 .verses {
 
-    max-height: 600px;
+    max-height: calc( 100vh - 120px);
     overflow-y: scroll;
-    padding-top: 5rem;
+    padding-top: 2rem;
 }
 
 .verses .verse-card {

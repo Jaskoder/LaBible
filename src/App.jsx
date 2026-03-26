@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import {
+  AlertContext,
   SettingsContex,
   ViewContext,
   PointsContex,
   SearchContext,
   SearchValueContext,
-  useTheme
+  useTheme,
+  ContentTitleContext
 } from "./helpers/hooks";
 
+import AlertBox from "./components/alert";
 import ApplicationSideBar from "./components/sidebar";
-import ApplicationContentDisplayer from "./components/content";
+import Content from "./components/content";
 import SettingBox from "./components/settingsBox";
 import BookMarks from "./components/bookmarks";
 import SearchScreen from "./components/searchscreen";
+import Reader from "./components/reader";
 
 import "./App.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -20,21 +24,20 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 function AppComponent({ children }) {
 
   const [theme] = useTheme();
-
   useEffect(() => {
-
     localStorage.setItem('bible_app_theme', theme);
-  }, [theme])
+  }, [theme]);
 
   return (
-    <div className={`app ${theme} flex h-screen`}>
-      {children}
-    </div>
+    <div className={`app ${theme} flex h-screen`}>{children}</div>
   )
 }
 
 function App() {
-  const [currentView, setCurrentView] = useState("search");
+
+  const [alert, setAlert] = useState({ message: '', type: '' });
+  const [currentView, setCurrentView] = useState("bible");
+  const [title, setTitle] = useState('La Bible');
   const [points, setPoints] = useState({ book: 1, chapter: 1 });
   const [search, setSearch] = useState(null);
   const [value, setValue] = useState('');
@@ -44,34 +47,31 @@ function App() {
   });
 
   return (
-    <SettingsContex.Provider value={[settings, setSettings]}>
-      <ViewContext.Provider value={[currentView, setCurrentView]}>
-        <PointsContex.Provider value={[points, setPoints]}>
-          <SearchContext.Provider value={[search, setSearch]}>
-            <SearchValueContext.Provider value={[value, setValue]}>
-              <AppComponent>
-                <ApplicationSideBar
-                  currentView={currentView}
-                  setCurrentView={setCurrentView}
-                ></ApplicationSideBar>
-
-                <div className="content-view">
-                  {currentView === "bible" && (
-                    <ApplicationContentDisplayer
-                      title={"La Bible"}
-                    ></ApplicationContentDisplayer>
-                  )}
-                  {currentView === "bookmarks" && <BookMarks></BookMarks>}
-                  {currentView === "notes" && <h1>Notes</h1>}
-                  {currentView === "settings" && <SettingBox></SettingBox>}
-                  {currentView === "search" && <SearchScreen></SearchScreen>}
-                </div>
-              </AppComponent>
-            </SearchValueContext.Provider>
-          </SearchContext.Provider>
-        </PointsContex.Provider>
-      </ViewContext.Provider>
-    </SettingsContex.Provider>
+    <AlertContext.Provider value={[alert, setAlert]}>
+      <SettingsContex.Provider value={[settings, setSettings]}>
+        <ViewContext.Provider value={[currentView, setCurrentView]}>
+          <PointsContex.Provider value={[points, setPoints]}>
+            <SearchContext.Provider value={[search, setSearch]}>
+              <SearchValueContext.Provider value={[value, setValue]}>
+                <ContentTitleContext.Provider value={[title, setTitle]}>
+                  <AppComponent>
+                    <ApplicationSideBar currentView={currentView} setCurrentView={setCurrentView}></ApplicationSideBar>
+                    <Content>
+                      {currentView === 'bible' && (<Reader />)}
+                      {currentView === 'bookmarks' && (<BookMarks />)}
+                      {currentView === 'settings' && (<SettingBox />)}
+                      {currentView === 'search' && (<SearchScreen />)}
+                      {currentView === 'notes' && (<h1>Notes</h1>)}
+                    </Content>
+                    { alert.message && <AlertBox></AlertBox>}
+                  </AppComponent>
+                </ContentTitleContext.Provider>
+              </SearchValueContext.Provider>
+            </SearchContext.Provider>
+          </PointsContex.Provider>
+        </ViewContext.Provider>
+      </SettingsContex.Provider>
+    </AlertContext.Provider>
   );
 }
 

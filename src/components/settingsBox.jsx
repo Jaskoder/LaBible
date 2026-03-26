@@ -8,9 +8,6 @@ function SettingBox() {
 
     return (
         <div className="settings">
-            <div className="title">
-                <h2>Réglages</h2>
-            </div>
             <div className="group theme-group">
                 <span className="label">Thème de l'application</span>
                 {

@@ -1,8 +1,13 @@
+import { useCallback } from 'react';
 import { markVerse } from '../helpers/marker';
 import { unMarkVerse } from '../helpers/marker';
+import { useAlert } from '../helpers/hooks';
 import './styles/modal.css';
 
 export default function Modal(props) {
+
+    const [_, setAlert] = useAlert();
+
     const {
         verse,
         setVmark,
@@ -25,6 +30,24 @@ export default function Modal(props) {
         setFocused();
     };
 
+    const createAlert = (message, type) => setAlert({message, type});
+
+    const handleControlsClic = useCallback((action) => {
+
+        switch (action) {
+            case 'mark':
+                break;
+            case 'note':
+                break;
+            case 'copy':
+                navigator.clipboard.writeText(verse.text);
+                createAlert('Copié dans le presse-papier', 'success');
+                break;
+            default:
+                break;
+        }
+    }, [])
+
 
     return (
         <div className="modal" style={{
@@ -36,7 +59,7 @@ export default function Modal(props) {
             </div>
             <div className="actions">
                 {controls.map((c) => (
-                    <li key={c.action}>
+                    <li key={c.action} onClick={() => handleControlsClic(c.action)}>
                         <i className={`bi bi-${c.icon}`}></i>
                         <span className='tooltip'>{c.label}</span>
                     </li>

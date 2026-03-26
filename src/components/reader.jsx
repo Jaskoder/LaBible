@@ -1,13 +1,15 @@
 import { useMemo, useState } from 'react';
 import { usePoints } from '../helpers/hooks';
+
 import bibleData from '../bible.json';
 import bibleMeta from '../biblemeta.json';
 import VersesReader from './verses';
 import ReferencePicker from './picker';
+
 import "./styles/reader.css";
 
 
-function ApplictionReader() {
+function Reader() {
 
     const [points, setPoints] = usePoints();
     const [open, setOpen] = useState(false);
@@ -50,31 +52,21 @@ function ApplictionReader() {
         <div className='reader'>
             <div className="reader-header">
                 <div className='meta-wrapper'>
-
                     <div className='meta'>
                         <span className='book'>{bibleMeta[book - 1].name}</span>
                         <span className='chapter'>{chapter}</span>
                         <button className='picker-toogle' onClick={() => setOpen(!open)}><i className='bi bi-chevron-down'></i></button>
                     </div>
                     <div className='controls'>
-                        <button onClick={goPrev}>
-                            <i className='bi bi-chevron-left'></i>
-                        </button>
-                        <button onClick={goNext}>
-                            <i className='bi bi-chevron-right'></i>
-                        </button>
+                        <button onClick={goPrev}><i className='bi bi-chevron-left'></i></button>
+                        <button onClick={goNext}><i className='bi bi-chevron-right'></i></button>
                     </div>
                 </div>
-                <ReferencePicker
-                    points={points}
-                    setPoints={setPoints}
-                    setOpen={setOpen}
-                    className={`picker ${open && 'open'}`}
-                ></ReferencePicker>
+                <ReferencePicker points={points} setPoints={setPoints} setOpen={setOpen} className={`picker ${open && 'open'}`}></ReferencePicker>
             </div>
             <VersesReader verses={bibleChapter}></VersesReader>
         </div>
     )
 }
 
-export default ApplictionReader;
+export default Reader;

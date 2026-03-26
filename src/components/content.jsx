@@ -1,13 +1,17 @@
-import './styles/content.css';
+import { useTitle } from '../helpers/hooks';
+import './styles/content.css'; 
 
-import ApplictionReader from './reader';
-function ApplicationContentDisplayer({ title }) {
+
+export default function Content({ children }) {
+
+    const [title, setTitle] = useTitle();
     return (
-        <div className="content">
-            <h1 className="title text-2xl font-bold">{title}</h1>
-            <ApplictionReader points={{book : 1, chapter : 1}}></ApplictionReader>
+
+        <div className='content-wrapper'>
+            <div className='title'>
+                <h2>{title}</h2>
+            </div>
+            <div className='content'>{children}</div>
         </div>
     )
 }
-
-export default ApplicationContentDisplayer

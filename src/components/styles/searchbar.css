@@ -1,31 +1,3 @@
-/*.searchbar {
-    position: relative;
-    height: 64px;
-}
-
-.searchbar input {
-
-    position: absolute;
-    top: 0.6rem;
-    left: 0rem;
-    right: 0rem;
-    bottom: 0.6rem;
-    background-color: var(--element-background);
-    padding: 0.6rem;
-    border-radius: calc( 8px + 0.2rem);
-}
-
-.searchbar .search {
-
-    position: absolute;
-    right: 0.2rem;
-    top: 0.8rem;
-    bottom: 0.8rem;
-    background: var(--body-background);
-    width: 44px;
-    border-radius: 8px;
-} */
-
 .searchbar {
 
     position: relative;

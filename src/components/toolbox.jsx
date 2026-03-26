@@ -1,12 +1,18 @@
-function SidebarToolBox({ safeOpen, setView }) {
+import { useTitle, useView } from "../helpers/hooks";
 
-    const handleClick = (name) => {
+function SidebarToolBox({ safeOpen }) {
+
+    const [_, setView] = useView();
+    const [title, setTitle] = useTitle();
+
+    const handleClick = (name, title) => {
+
+        setTitle(title);
         setView(name);
-        safeOpen()
     };
     return (
         <div className="toolbox">
-            <li className="item" onClick={() => handleClick('settings')}>
+            <li className="item" onClick={() => handleClick('settings', 'Réglages')}>
                 <i className="bi bi-gear"></i>
                 <span className="tooltip">Reglages</span>
             </li>
