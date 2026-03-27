@@ -4,20 +4,21 @@ import "./styles/settings.css";
 function SettingBox() {
 
     const [theme, setTheme] = useTheme();
-    const themeGroup = ["light", 'dark', 'slate', 'miel', 'emeraude', 'cedar', 'sage', 'chestnut'];
+    const darkThemes = ["light", 'dark'];
 
     return (
         <div className="settings">
             <div className="group theme-group">
-                <span className="label">Thème de l'application</span>
+                <span className="label">Thèmes sombres</span>
                 {
-                    themeGroup.map((them) => (
+                    darkThemes.map((them) => (
                         <button
                             className={`${theme === them && 'active'}`}
                             onClick={() => setTheme(them)}
                         >{them}</button>
                     ))
                 }
+                <span className="label">Themes claires</span>
             </div>
         </div>
     )

@@ -20,7 +20,7 @@
 
 .content-wrapper .content {
 
-    height: calc(100vh - 64px -2rem );
+    height: calc(100vh - 64px - 4rem );
 }
 
 body:has(.open) {

@@ -33,7 +33,7 @@ function BookMarks() {
                 verses.length > 0 ? (
                     <div className="bmarks">
                         {
-                            verses.map((verse) => <BookMark verse={verse}></BookMark>)
+                            verses.map((verse) => <BookMark key={`bmar-${verse.id}`} verse={verse}></BookMark>)
                         }
                     </div>
                 ) : (

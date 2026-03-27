@@ -20,7 +20,10 @@ function SideBarNavigationItems() {
         <div className="nav-items mt-4 mb-4">
             {
                 links.map((link) => (
-                    <li key={link.icon} className="nav-item" onClick={() => handleClick(link.view, link.title)}>
+                    <li key={link.icon} 
+                        className={`nav-item ${ view === link.view && 'active'}`} 
+                        onClick={() => handleClick(link.view, link.title)}
+                    >
                         <i className={`bi bi-${link.icon}`}></i>
                         <span className="tooltip">{link.label}</span>
                     </li>

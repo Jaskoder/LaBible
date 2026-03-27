@@ -10,16 +10,17 @@
 
 .light {
 
-    --body-background: hsl(0, 16%, 95%);
-    --box-background: hsl(0, 16%, 90%);
-    --element-background: hsl(0, 16%, 85%);
+    --primary-color : hsl(204, 67%, 32%);
+    --body-background: hsl(195, 0%, 95%);
+    --box-background: hsl(195, 0%, 90%);
+    --element-background: hsl(195, 0%, 87%);
 
-    --text-primary-color: hsl(0, 16%, 10%);
-    --text-secondary-color: hsl(0, 16%, 30%);
+    --text-primary-color: hsl(195, 0%, 20%);
+    --text-secondary-color: hsl(195, 0%, 50%);
 
-    --border-color: hsl(0, 16%, 60%);
-
-    --active-highlight: hsl(0, 50%, 90%);
+    --border-color: hsl(195, 0%, 60%);
+    --active-highlight: hsl(195, 50%, 90%);
+    --background-hover : hsl(195,0%, 93%);
 
     * {
         color: var(--text-primary-color);
@@ -28,158 +29,17 @@
 
 .dark {
 
-    --primary-color: hsl(240, 30%, 50%);
+    --primary-color : hsl(204, 67%, 32%);
+    --body-background: hsl(195, 10%, 5%);
+    --box-background: hsl(195, 10%, 9%);
+    --element-background: hsl(195, 10%, 13%);
 
-    --body-background: hsl(240, 6%, 5%);
-    --box-background: hsl(240, 6%, 10%);
-    --element-background: hsl(240, 6%, 15%);
+    --text-primary-color: hsl(195, 10%, 80%);
+    --text-secondary-color: hsl(195, 10%, 50%);
 
-    --text-primary-color: hsl(240, 6%, 90%);
-    --text-secondary-color: hsl(240, 0%, 70%);
-
-    --border-color: hsl(240, 6%, 40%);
-    --active-highlight: hsl(240, 0%, 10%);
-    --background-hover : hsl(240, 6%, 7%);
-
-    * {
-        color: var(--text-primary-color);
-    }
-}
-
-.chestnut {
-
-    --primary-color: hsl(25, 60%, 30%);
-
-    --body-background: hsl(25, 6%, 5%);
-    --box-background: hsl(25, 6%, 10%);
-    --element-background: hsl(25, 6%, 15%);
-
-    --text-primary-color: hsl(25, 6%, 90%);
-    --text-secondary-color: hsl(25, 0%, 70%);
-
-    --border-color: hsl(25, 6%, 40%);
-    --active-highlight: hsl(25, 0%, 10%);
-    --background-hover : hsl(25, 6%, 7%);
-
-    * {
-        color: var(--text-primary-color);
-    }
-}
-
-.sage {
-
-    --primary-color: hsl(95, 60%, 30%);
-
-    --body-background: hsl(95, 6%, 5%);
-    --box-background: hsl(95, 6%, 10%);
-    --element-background: hsl(95, 6%, 15%);
-
-    --text-primary-color: hsl(95, 6%, 90%);
-    --text-secondary-color: hsl(95, 0%, 70%);
-
-    --border-color: hsl(95, 6%, 40%);
-    --active-highlight: hsl(95, 0%, 10%);
-    --background-hover : hsl(95, 6%, 7%);
-
-    * {
-        color: var(--text-primary-color);
-    }
-}
-
-.cedar {
-
-    --primary-color: hsl(350, 60%, 30%);
-
-    --body-background: hsl(350, 6%, 5%);
-    --box-background: hsl(350, 6%, 10%);
-    --element-background: hsl(350, 6%, 15%);
-
-    --text-primary-color: hsl(350, 6%, 90%);
-    --text-secondary-color: hsl(350, 0%, 70%);
-
-    --border-color: hsl(350, 6%, 40%);
-    --active-highlight: hsl(350, 0%, 10%);
-    --background-hover : hsl(350, 6%, 7%);
-
-    * {
-        color: var(--text-primary-color);
-    }
-}
-
-.emeraude {
-
-    --primary-color: hsl(145, 60%, 30%);
-
-    --body-background: hsl(145, 6%, 5%);
-    --box-background: hsl(145, 6%, 10%);
-    --element-background: hsl(145, 6%, 15%);
-
-    --text-primary-color: hsl(145, 6%, 90%);
-    --text-secondary-color: hsl(145, 0%, 70%);
-
-    --border-color: hsl(145, 6%, 40%);
-    --active-highlight: hsl(145, 20%, 10%);
-    --background-hover : hsl(145, 6%, 7%);
-
-    * {
-        color: var(--text-primary-color);
-    }
-}
-
-.slate {
-
-    --primary-color: hsl(205, 60%, 30%);
-
-    --body-background: hsl(205, 6%, 5%);
-    --box-background: hsl(205, 6%, 10%);
-    --element-background: hsl(205, 6%, 15%);
-
-    --text-primary-color: hsl(205, 6%, 90%);
-    --text-secondary-color: hsl(205, 0%, 70%);
-
-    --border-color: hsl(205, 6%, 40%);
-    --active-highlight: hsl(205, 0%, 10%);
-    --background-hover : hsl(205, 6%, 7%);
-
-    * {
-        color: var(--text-primary-color);
-    }
-}
-
-.miel {
-
-    --primary-color: hsl(40, 60%, 30%);
-
-    --body-background: hsl(40, 6%, 5%);
-    --box-background: hsl(40, 6%, 10%);
-    --element-background: hsl(40, 6%, 15%);
-
-    --text-primary-color: hsl(40, 6%, 90%);
-    --text-secondary-color: hsl(40, 0%, 70%);
-
-    --border-color: hsl(40, 6%, 40%);
-    --active-highlight: hsl(40, 0%, 10%);
-    --background-hover : hsl(40, 6%, 7%);
-
-    * {
-        color: var(--text-primary-color);
-    }
-}
-
-.juniper {
-
-    --primary-color: hsl(165, 60%, 30%);
-
-    --body-background: hsl(165, 6%, 5%);
-    --box-background: hsl(165, 6%, 10%);
-    --element-background: hsl(165, 6%, 15%);
-
-    --text-primary-color: hsl(165, 6%, 90%);
-    --text-secondary-color: hsl(165, 0%, 70%);
-
-    --border-color: hsl(165, 6%, 40%);
-    --active-highlight: hsl(165, 0%, 10%);
-    --background-hover : hsl(165, 6%, 7%);
+    --border-color: hsl(195, 10%, 20%);
+    --active-highlight: hsl(195, 50%, 10%);
+    --background-hover : hsl(195,10%, 7%);
 
     * {
         color: var(--text-primary-color);
@@ -209,4 +69,9 @@ li {
 html {
 
     font-size: 16px;
+}
+
+button.active {
+
+    transform: scale(0.9);
 }

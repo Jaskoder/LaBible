@@ -2,18 +2,14 @@ import { useEffect } from "react";
 import { useAlert } from "../helpers/hooks";
 import './styles/alert.css';
 
-export default function AlertBox() {
+function AlertBox() {
 
     const [alert, setAlert] = useAlert();
 
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            setAlert({ message: '', type: '' });
-
-        }, 3000);
-
+        const timeout = setTimeout(() => setAlert({ message: '', type: '' }), 3000);
         return () => clearTimeout(timeout);
-    }, [alert]);
+    }, []);
 
     const icons = {
         success: 'check-circle',
@@ -23,12 +19,11 @@ export default function AlertBox() {
     }
 
     return (
-
         <div className={`alert-box ${alert?.type}`}>
-            <span className="icon">
-                <i className={`bi bi-${icons[alert?.type || 'info']}`}></i>
-            </span>
-            <p className="message">{alert.message}</p>
+            <span className="icon"> <i className={`bi bi-${icons[alert?.type || 'info']}`}></i></span>
+            <p className="message">{alert?.message}</p>
         </div>
     );
 }
+
+export default AlertBox;

@@ -54,7 +54,7 @@ function BookMark({ verse }) {
             <div className="actions">
                 {
                     actionButtons.map((button) => (
-                        <button className='action-btn' onClick={() => handleButtonsAction(button.action)}>
+                        <button key={button.action} className='action-btn' onClick={() => handleButtonsAction(button.action)}>
                             <i className={`bi bi-${button.icon}`}></i>
                         </button>
                     ))

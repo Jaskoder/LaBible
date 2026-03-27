@@ -27,3 +27,18 @@
         }
     }
 }
+
+@media screen and (max-width : 1200px) {
+
+    .bookmarks .bmarks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width : 1000px) {
+
+    .bookmarks .bmarks {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -5,8 +5,6 @@ import splitBibleParts from '../helpers/splitBibleParts';
 
 import './styles/picker.css';
 
-
-
 function ReferencePicker({ points, setPoints, setOpen, ...props }) {
 
     const { book, chapter } = points;
@@ -32,8 +30,10 @@ function ReferencePicker({ points, setPoints, setOpen, ...props }) {
 
     const goToTarget = (chapindex) => {
         setTargetTo('chapter', chapindex);
-        setOpen(false);
+        handleClosePicker();
     }
+
+    const handleClosePicker = () => setOpen(false);
 
     return (
         <div {...props}>
@@ -57,10 +57,7 @@ function ReferencePicker({ points, setPoints, setOpen, ...props }) {
                     Array.from({ length: numberOfChapters }).map((_, i) => (
                         <button key={`btn-${i}`} className={`chap-picker ${chapter === i + 1 ? 'active' : ''}`}
                             onClick={() => goToTarget(i + 1)}
-
-                        >
-                            {i + 1}
-                        </button>
+                        > {i + 1} </button>
                     ))
                 }
             </div>

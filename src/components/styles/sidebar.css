@@ -34,6 +34,12 @@
     }
 }
 
+.nav-items li.active {
+
+    background-color: var(--active-highlight);
+    border-left: 2px solid var(--primary-color);
+}
+
 .sidebar .toolbox {
     display: flex;
     flex-direction: column;

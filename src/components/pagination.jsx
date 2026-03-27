@@ -50,7 +50,7 @@ function Pagination({ offset, setOffset, dataLength, itemsPerPage }) {
                     Array.from({ length: Math.round(dataLength / 15) }).map((_, i) => (
                         <button
                             key={`index_${i}`}
-                            className={`${offset === i * 15 ? 'active' : ''}`}
+                            className={`${offset === i * itemsPerPage ? 'active' : ''}`}
                             onClick={() => handleClick('target', i)}><span>{i + 1}</span>
                         </button>
                     ))
